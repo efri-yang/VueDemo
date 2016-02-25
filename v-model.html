@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-model</title>
+	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<input type="text" v-model="message" />		
+	</div>
+	<script>
+	//Vue要大写
+	new Vue({
+		el:"#app",
+		data:{
+			message:'你好，世界！'
+		},
+	})
+	</script>
+</body>
+</html>

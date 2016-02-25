@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="example-1">
+		Hello {{name}} !
+	</div>
+	<script type="text/javascript">
+	var exampleData={
+		name:"jjjjj"
+	}
+	var exampleVM=new Vue({
+		el:"#example-1",
+		data:exampleData
+	});
+	console.dir(exampleVM);
+	</script>
+</body>
+</html>
