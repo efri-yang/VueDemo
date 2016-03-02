@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生命周期</title>
+	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="test1">
+		<p>绑定文本:{{message}}</p>
+		<p>绑定属性:<span id="{{id}}"></span></p>
+		<p>表达式:{{ ok ? 'YES' : 'NO' }}</p>
+		<p>过滤器:{{ message2 | 'a' | 'b' }}</p>
+		<p v-if="greeting">Hello!</p>
+		<a v-bind:href="url">bing</a>
+	</div>
+	<script type="text/javascript">
+		var  vm=new Vue({
+			el:'#test1',
+			data:{
+				message:"你好,世界!",
+				id:1,
+				ok:0,
+				message2:['a','b'],
+				greeting:true
+			}
+
+		});
+	</script>
+</body>
+</html>

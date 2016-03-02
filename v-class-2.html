@@ -8,18 +8,16 @@
 </head>
 
 <body>
-	<div id="box1">
-		<a  v-bind:href="url">百度一下</a>
-
-	</div>
+	<div class="static" v-bind:class="{ 'class-a': isA, 'class-b': isB }"></div>
     
     <script type="text/javascript">
     new Vue({
-        el: '#box1',
+        el: '.static',
         data: {
-            url: "https://www.baidu.com"
+          isA: true,
+          isB: true
         }
-    })
+    });
     </script>
 </body>
 

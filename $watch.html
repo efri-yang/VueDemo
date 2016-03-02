@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="example">{{a}}</div>
+	<button id="btn">点击</button>
+	<script type="text/javascript">
+	var data={
+		a:1
+	}
+	var vm=new Vue({
+		el:'#example',
+		data:data
+	});
+	
+	console.dir(vm.$data===data);
+	vm.$el=document.getElementById('example');
+
+	vm.$watch('a',function(newVal,oldVal){
+		alert("xxxx");
+	});
+	document.getElementById('btn').onclick=function(){
+		data.a=10;
+		
+	}
+	
+	</script>
+</body>
+</html>
