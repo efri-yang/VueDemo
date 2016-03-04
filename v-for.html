@@ -6,23 +6,27 @@
 	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
 </head>
 <body>
-	<div id="app">
-		<ul>
-			<li v-for="todo in todos">
-				{{todo.text}}
-			</li>
-		</ul>
+	<ul id="repeat-object" class="demo">
+		<li v-for="value in object">
+			{{$key}} : {{value}}
+		</li>
+	</ul>
+	<div id="test2">
+  			<span v-for="n in 10">{{ n }} </span>
 	</div>
 	<script type="text/javascript">
 		new Vue({
-			el:'#app',
+			el:'#repeat-object',
 			data:{
-				todos:[
-					{text:'学习javascript'},
-					{text:'学习Vue.js'},
-					{text:'学习npm'}
-				]
+				object:{
+					FirstName: '杨',
+				    LastName: '艺辉',
+				    Age: 30
+				}
 			}
+		});
+		new Vue({
+			el:"#test2"
 		})
 	</script>
 </body>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="test1">
+		<button v-on:click="greet">greet按钮(test1)</button>
+	</div>
+	<div id="test2">
+		<a href="https://www.baidu.com" v-on:click="greet">greet按钮(test2)</button>
+		<button v-on:click="say('hello!', $event)">Submit</button>
+		<a href="https://www.baidu.com">点击</a>
+		<form  action="http://www.baidu.com">
+			
+			<input v-on:keyup.13="submit">
+		</form>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:'#test1',
+			data:{
+				name:'Vue.js'
+			},
+			methods:{
+				greet:function(event){
+					alert("test1")
+				}
+			}
+		});
+
+		new Vue({
+			el:'#test2',
+			data:{
+				name:'Vue.js'
+			},
+			methods:{
+				greet:function(event){
+					event.preventDefault();
+				},
+				say:function(msg, event){
+					alert(msg)
+				},
+				submit:function(event){
+					alert("xxx")
+				}
+
+			}
+		})
+	</script>
+</body>
+</html>

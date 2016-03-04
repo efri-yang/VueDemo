@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+</head>
+
+<body>
+	<div id="box1">
+        <ul>
+            <li id="test1" v-for="item in items" track-by="_uid" data-no="{{item.no}}">{{item.title}}</li>
+        </ul>
+		<button id="btn1" v-on:click="changedata">变化数据</button>
+
+	</div>
+    
+    <script type="text/javascript">
+    var vm=new Vue({
+        el: '#box1',
+        data: {
+             items: [
+                { _uid: '88f869d',title:'标题88f869d',no:1},
+                { _uid: '7496c10',title:'标题7496c10',no:2},
+                { _uid: '88f861d',title:'标题88f861d',no:3},
+              ]
+        },
+        methods:{
+            changedata:function(){
+                var index = this.items.indexOf(item);
+                if (index !== -1) {
+                  this.items.splice(index, 1)
+                }
+            }
+        }
+    });
+
+    
+    vm.$watch('items',function(newVal,oldVal){
+        alert(this.items.length)
+    });
+
+       
+    </script>
+</body>
+
+</html>
