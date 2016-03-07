@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+	<div id="example">
+      <my-parent></my-parent>
+    </div>
+    <script type="text/javascript">
+        var lastChild=Vue.extend({
+             template: '<div>lastChild,lastChild!</div>'
+        })
+        var Child = Vue.extend({
+             template: '<div>Child!</div><lastChild></lastChild>',
+             components:{
+                'lastChild':lastChild   
+             }
+        })
+        var Parent=Vue.extend({
+            template: '<div>幸福了吗</div><my-child></my-child>',
+            components: {
+                // <my-component> 只能用在父组件模板内
+                'my-child': Child
+            }
+        });
+        Vue.component('my-parent', Parent);
+         new Vue({
+            el:"#example"
+        })
+       
+    </script>
+</body>
+
+</html>

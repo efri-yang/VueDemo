@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+	<div id="example">
+      <my-component></my-component>
+      <my-component></my-component>
+    </div>
+
+    <div id="example1">
+      <my-component></my-component>
+    </div>
+    
+    <script type="text/javascript">
+
+        var MyComponent = Vue.extend({
+          template: '<div>客户端的组件!</div>'
+        });
+        Vue.component('my-component', MyComponent);
+        // 创建根实例
+        new Vue({
+          el: '#example'
+        });
+        new Vue({
+            el:'#example1'
+        })
+    </script>
+</body>
+
+</html>
