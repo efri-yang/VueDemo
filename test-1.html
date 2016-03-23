@@ -10,15 +10,17 @@
 
 <body>
 	<div id="box1">
-		<a  v-bind:href="url">百度一下</a>
+		
 	</div>
+    <div id="mount-point"></div>
     
     <script type="text/javascript">
-    new Vue({
-        el: '#box1',
-        data: {
-            url: "https://www.baidu.com"
-        }
+    var Profile=Vue.extend({
+        template:'<p>{{firstName}} {{lastName}} aka {{alias}}</p>'
+    });
+    console.dir(Profile)
+    var profile=new Profile({
+        
     })
     </script>
 </body>

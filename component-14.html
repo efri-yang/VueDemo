@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+    <template id="tpl1">
+        <div>
+          <h1>This is my component!</h1>
+          <slot>
+            This will only be displayed if there is no content
+            to be distributed.
+          </slot>
+        </div>
+    </template>
+
+
+    <div id="demo1">
+        
+    
+    	<my-component>
+          <p>This is some original content</p>
+          <p>This is some more original content</p>
+        </my-component>
+    </div>
+
+    
+    <script type="text/javascript">
+
+    var child=Vue.extend({
+        template:"#tpl1"
+    });
+    Vue.component("my-component",{
+        template:"<div><h1>This is my component!</h1><slot>This will only be displayed if there is no content to be distributed.</slot></div>",
+    })
+    new Vue({
+        el: '#demo1'
+    })
+    </script>
+</body>
+
+</html>

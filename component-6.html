@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+  <div id="demo1">
+     <input v-model="parentMsg">
+     <br/>
+     <child :msg.sync="parentMsg"></child>
+     <button v-on:click="button1">单击</button>
+  </div>
+
+  
+	
+  <script>
+    new Vue({
+      el:"#demo1",
+      data:{
+        parentMsg:'Message from parent'
+      },
+      methods:{
+        button1:function(){
+          alert("xxxx")
+        }
+      },
+      components:{
+          child:{
+            props:['msg'],
+            template:'<span>{{msg}}</span>'
+          }
+      }
+    })
+
+
+
+    
+    
+
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

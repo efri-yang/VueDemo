@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <title>demo</title>
     <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
 </head>
 
 <body>
 	<div id="box1">
-		<a  v-bind:href="url">百度一下</a>
+	
+
 	</div>
     
     <script type="text/javascript">
-    new Vue({
-        el: '#box1',
-        data: {
-            url: "https://www.baidu.com"
-        }
+    var data={
+        a:1
+    }
+    var vm=new Vue({
+        data:data
     })
+    
     </script>
 </body>
 

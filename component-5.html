@@ -9,16 +9,16 @@
 
 <body>
   <div id="prop-example-1">
-      <child msg="hello!"></child>    
+      <my-parent my-name="yyh" my-age="24"></my-parent>
   </div>
 
   
 	
   <script>
-    Vue.component('child',{
-      props:['msg'],
-      template:'<span>{{msg}}</span>'
-    });
+    Vue.component('my-parent',{
+      props:["myName","myAge"],
+      template:'<span>{{myName}} {{myAge}}</span>'
+    })
 
     
     new Vue({

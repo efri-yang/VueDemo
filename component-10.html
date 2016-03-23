@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+    <template id="child-template">
+        <input v-model='msg'>
+        <button v-on:click="notify">调用事件</button>
+    </template>
+    <!-- 子组件模板 -->
+    <div id="demo1">
+        <p>Messages:{{messages | json}}</p>
+        <child v-on:child-msg="handleIt" msg="xxx"></child>
+    </div>
+    <script type="text/javascript">
+    Vue.component('child', {
+        template: '#child-template',
+        data: function() {
+            return {
+                msg: 'hello',
+                a:10
+            }
+        },
+        methods: {
+            notify: function() {
+               
+                if (this.msg.trim()) {
+                    this.$dispatch('child-msg', this.msg);
+                    this.msg = "";
+                }
+            }
+        }
+    });
+    new Vue({
+        el: "#demo1",
+        data: {
+            messages: [],
+            a:10
+        },
+        methods: {
+            "handleIt": function(msg) {
+                alert(this.$children[0].a)
+                this.messages.push(msg)
+            }
+        }
+    })
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+     var demo = {}
+
+var v;
+Object.defineProperty(demo,'foobar',{
+  get:function(){
+    return v;
+  },
+  set:function(e){
+    v = e;
+    sow();
+  }}
+);
+
+function sow(){
+   $('body').html(demo.foobar) 
+}
+
+
+demo.foobar = "hello"
+
+setTimeout(function(){
+  demo.foobar = "bye"
+  setTimeout(function(){
+      demo.foobar = 'i am back'
+  },1000) 
+},1000)
+
+    </script>
+</body>
+
+</html>

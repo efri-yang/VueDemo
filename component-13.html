@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+	<div id="demo1">
+        <child v-show="someChildProperty"></child>   
+        <button id="btn1" v-on:click="alt">点击</button>
+    </div>
+    
+    <script type="text/javascript">
+        Vue.component('child', {
+          // 有效，因为是在正确的作用域内
+          template: '<div v-show="someChildProperty" v-on:click="say">Child</div>',
+          data: function () {
+            return {
+              someChildProperty: true,
+              a:10
+            }
+          },
+          methods:{
+            say:function(){
+                    alert(this.$parent.age)
+            }
+          }
+        });
+        var parent=new Vue({
+            el:'#demo1',
+            data:{
+                age:28
+            },
+            methods:{
+                alt:function(){
+                    alert(this.$children[0].a)
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>

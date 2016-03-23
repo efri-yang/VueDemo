@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+	 <DIV id="demo1">
+    <my-parent my-name="yyh"></my-parent>
+
+     
+   </DIV>
+   <script type="text/javascript">
+        var childComponent=Vue.extend({
+          props:["msg"],
+          template:'<div>{{msg}}</div>'
+        });
+        Vue.component('my-parent',{
+           props:['myName'],
+           template:'<div><input type="text" value="{{myName}}" v-model="parentMsg" /></div><child :msg.sync="parentMsg"></child>',
+           components: {
+            "child":childComponent
+           }
+        });
+       
+        new Vue({
+          el:'#demo1',
+          
+        })
+       // <div><child :value.sync="myName"></child></div>
+   </script>
+</body>
+
+</html>

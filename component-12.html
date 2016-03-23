@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+</head>
+
+<body>
+	<div id="parent">
+      <user-profile v-ref:profile age="24"></user-profile>
+
+    </div>
+        <script type="text/javascript">
+            var component=Vue.component("user-profile",{
+                template:"<div>创建组件</div>"
+            })
+            var parent=new Vue({
+                el: '#parent'
+            });
+            var child = parent.$refs.profile;
+            alert(parent.age)
+            
+        </script>
+</body>
+
+</html>

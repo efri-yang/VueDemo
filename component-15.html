@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+
+<body>
+	<div id="box1">
+        
+		<component :is="currentView"  keep-alive>
+          <!-- 组件在 vm.currentview 变化时改变 -->
+        </component>
+
+        <button id="btn1">home</button>
+        <button id="btn2">posts</button>
+
+	</div>
+    
+    <script type="text/javascript">
+    var postsComponent=Vue.extend({
+        template:"<div>child</div>"
+    });
+    Vue.component("postsComponent",postsComponent)
+    var vm=new Vue({
+      el: '#box1',
+      data: {
+        currentView: 'home'
+      },
+      //为什么method 不能写在这里，写这里后竟然没有效果 
+      components: {
+        home: {
+            template:"<div>asdfsdfsdfasdf</div>"
+        },
+        posts:postsComponent
+
+      }
+    });
+    $("#btn1").on("click",function(){
+        vm.currentView="home"
+    });
+    $("#btn2").on("click",function(){
+        vm.currentView="posts"
+    })
+
+    
+    </script>
+</body>
+
+</html>
