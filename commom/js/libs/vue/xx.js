@@ -2359,6 +2359,8 @@ var text$1 = Object.freeze({
       this.$el = null;
       this.$parent = options.parent;
       this.$root = this.$parent ? this.$parent.$root : this;
+
+     
       this.$children = [];
       this.$refs = {}; // child vm references
       this.$els = {}; // element references
@@ -2445,6 +2447,9 @@ var text$1 = Object.freeze({
       if (options.el) {
         this.$mount(options.el);
       }
+
+
+
     };
   }
 
@@ -9154,7 +9159,9 @@ var template = Object.freeze({
    * @param {Object} [options]
    * @public
    */
-
+/**
+ * []
+ */
   function Vue(options) {
     this._init(options);
   }
