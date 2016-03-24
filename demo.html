@@ -3,18 +3,85 @@
 <head>
 	<meta charset="UTF-8">
 	<title>demo</title>
-	<script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+	<script type="text/javascript" src="commom/js/libs/vue/xx.js"></script>
 </head>
 <body>
 	
 	<script type="text/javascript">
-	var MyComponent=Vue.extend({
+		var obj1={
+			name:"yyh",
+			age:24,
+			address:"漳浦赤土"
+		}
+		Object.defineProperty(obj1,'nickname', {
+			value: 24,
+            writable: true,
+            enumerable: false,
+            configurable: true
+		})
 
-	})
+		function extend(to,from){
+			var keys=Object.keys(from);
+			var i=keys.length;
+			for(var j=0;j<i;j++){
+				to[keys[j]]=from[keys[j]];
+			}
+			return to;
+		}
 
-	console.log(MyComponent);
+		var obj2=extend(obj1,{"love":"篮球"});
+		console.dir(obj1);
+		console.dir(obj2);
+		Vue.extend({})
+
+
+		function Human(){
+			this.name="杨艺辉";
+			this.age=24;
+		}
+		Human.prototype={
+			nickname:"丑男孩",
+			say:function(){
+				alert("说话")
+			}
+		}
+		Human.say=function(){
+			console.dir(this.age);
+		}
+		Human.thinking="true";
+
+		
+		function DongWu(){
+
+		}
+		DongWu.prototype=new Human();
+		DongWu.prototype.fly=function(){
+			alert("fly会飞");
+		}
+
 	
+		// alert(dw1.nickname);
+		// 
+		// 
+		function createClass(name) {
+	      return new Function('return function ' + classify(name) + ' (options) { this._init(options) }')();
+	    }
+		var classifyRE = /(?:^|[-_\/])(\w)/g;
+		function classify(str) {
+		   return str.replace(classifyRE, toUpper);
+		}
+		function toUpper(_, c) {
+		    return c ? c.toUpperCase() : '';
+		}
+
+
+		var myTest=createClass("person_func");
+		console.dir(myTest)
 	</script>
-	xxxxxx
+	
+
+
+
+	
 </body>
 </html>

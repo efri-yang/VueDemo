@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/vue.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+
+<body>
+	<div id="mount-point"></div>
+    
+    <script type="text/javascript">
+        //
+        var Profile=Vue.extend({
+            template:"<p>{{firstName}} {{lastName}} aka {{alias}}</p>"
+        });
+
+        var  Profile=new Profile({
+
+        }) ;
+
+        var a=Vue.extend({});
+        alert(a);
+    </script>
+</body>
+
+</html>

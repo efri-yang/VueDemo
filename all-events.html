@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" id="body">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="commom/js/libs/vue/xx.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+
+<style>
+    .box{
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<body >
+    
+        <!-- load事件竟然执行 -->
+    
+        <div class="box">@keyup.13：<input @keyup.13="keyup13"></div>
+        <div class="box">v-on:keyup.13：<input v-on:keyup.13="keyup13"></div>
+        <div class="box">v-on:keyup.enter：<input v-on:keyup.enter="keyup13"></div>
+        
+        <hr/>
+        
+        <div class="box">mouseover：<input v-on:mouseover="mouseovered"></div>
+        <div class="box">mouseout：<button v-on:mouseout="mouseouted">mouseout</button></div>
+        
+
+        <div class="box">mouseenter：<input v-on:mouseenter="mouseentered"></div>
+        <div class="box">mouseleave：<button v-on:mouseleave="mouseleaveed">mouseout</button></div>
+        
+
+        <div class="box">mousedown：<input v-on:mousedown="mousedowned"></div>
+        <div class="box">mouseup：<button v-on:mouseleave="mouseuped">mouseout</button></div>
+
+
+        <hr/>
+        <!-- input change 要在失去焦点后验证 -->
+        <div class="box">mousedown：<input v-on:change="changed"></div>
+        <div class="box">
+            mousedown：
+            <select @change="changed">
+                <option>请选择</option>
+                <option>选择1</option>
+                <option>选择2</option>
+                <option>选择3</option>
+            </select>
+        </div>
+        <hr/>
+        <div class="box">blur：<input v-on:blur="blured"></div>
+        <div class="box">focus：<input v-on:focus="focused"></div>
+        <!-- 点击就是触发focus 鼠标离开 点击非元素区域触发blur -->
+        <div class="box">blur：<button v-on:blur="blured">mouseout</button></div>
+        <div class="box">focus：<button v-on:focus="focused">mouseout</button></div>
+        
+        <div class="box"><img src="http://wnworld.com/wp-content/uploads/2015/11/001-1.png" v-on:load="loaded"></div>
+
+        <!-- load -->
+
+    <!-- 
+        识别的事件  click mouseover mouseout onmousedown、onmouseup、mouseenter、mouseleave、focus、blur
+     -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        var vm=new Vue({
+            el:'#body',
+            methods:{
+                keyup13:function(){
+                    alert("keyup13");
+                },
+                blured:function(){
+                    alert("blur事件");
+                },
+                focused:function(){
+                    alert("focus事件");
+                },
+                mouseovered:function(){
+                    alert("mouseover事件");
+                },
+                mouseouted:function(){
+                    alert("mouseout事件");
+                },
+                mouseentered:function(){
+                    alert("mouseentered事件");
+                },
+                mouseleaveed:function(){
+                    alert("mouseleave事件");
+                },
+                mousedowned:function(){
+                    alert("mousedown事件");
+                },
+                mouseuped:function(){
+                    alert("mouseup事件");
+                },
+                changed:function(){
+                    alert("change 事件");
+                },
+                loaded:function(){
+                    alert("loaded 事件");
+                }
+               
+            }
+        });
+
+        
+console.dir(vm.$el);
+    </script>
+</body>
+
+</html>

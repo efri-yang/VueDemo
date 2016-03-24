@@ -8418,14 +8418,18 @@ var template = Object.freeze({
      *
      * @param {Object} extendOptions
      */
-
+     /**
+      *只能传递对象
+      */
     Vue.extend = function (extendOptions) {
       extendOptions = extendOptions || {};
+
       var Super = this;
       var isFirstExtend = Super.cid === 0;
       if (isFirstExtend && extendOptions._Ctor) {
         return extendOptions._Ctor;
       }
+
       var name = extendOptions.name || Super.options.name;
       if ('development' !== 'production') {
         if (!/^[a-zA-Z][\w-]*$/.test(name)) {
@@ -8433,8 +8437,13 @@ var template = Object.freeze({
           name = null;
         }
       }
+      /**
+       * 创建  function VueComponent(options){ this._init(options)} 函数
+       */
       var Sub = createClass(name || 'VueComponent');
+     
       Sub.prototype = Object.create(Super.prototype);
+       console.dir(Sub)
       Sub.prototype.constructor = Sub;
       Sub.cid = cid++;
       Sub.options = mergeOptions(Super.options, extendOptions);
